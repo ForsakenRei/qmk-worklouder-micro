@@ -18,3 +18,8 @@
 #define RGB_MATRIX_DEFAULT_VAL 200
 
 #define RGB_MATRIX_TIMEOUT 60000
+
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_PIXEL_RAIN
+
+#define RGBLIGHT_SLEEP // allows us to use rgblight_suspend() and rgblight_wakeup() in keymap.c
+#define RGBLIGHT_TIMEOUT 900000
