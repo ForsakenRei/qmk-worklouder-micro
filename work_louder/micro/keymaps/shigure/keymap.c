@@ -34,36 +34,42 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 };
 #endif
 
+#define SCR_LFT G(S(KC_LEFT))
+#define SCR_RHT G(S(KC_RGHT))
+#define VD_LEFT G(C(KC_LEFT))
+#define VD_RGHT G(C(KC_RIGHT))
+#define OS_LOCK G(KC_L)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT(
+    [0] = LAYOUT( //default layer
         KC_NO,   KC_ESC,  KC_F5,   KC_NO,
         WIN_POS, ALT_TAB, G(KC_X), KC_LGUI,
-        KC_F13,  KC_MPRV, KC_MPLY, KC_MNXT,
-        RGB_TOG, KC_F15,  KC_MUTE, TO(1)
+        KC_F13,  SCR_LFT, SCR_RHT, KC_MPLY,
+        TO(3),   KC_F15,  KC_MUTE, TO(1)
     ),
-    [1] = LAYOUT(
-        _______, _______, _______, _______,
-        _______, _______, _______, _______,
-        _______, _______, _______, _______,
-        _______, _______, _______, TO(2)
+    [1] = LAYOUT( //utility layer
+        _______, KC_SLEP, OS_LOCK, _______,
+        WIN_POS, KC_PGDN, KC_PGUP, G(KC_X),
+        VD_LEFT, SCR_LFT, SCR_RHT, VD_RGHT,
+        TO(0),   KC_PGDN, KC_PGUP, TO(2)
     ),
-    [2] = LAYOUT(
+    [2] = LAYOUT( //media layer
         _______, _______, _______, _______,
-        _______, _______, _______, _______,
-        _______, _______, _______, _______,
-        _______, _______, _______, TO(3)
+        _______, KC_VOLU, KC_VOLD, _______,
+        KC_MSTP, KC_MPRV, KC_MNXT, KC_MPLY,
+        TO(1),   KC_F15,  KC_MUTE, TO(3)
     ),
-    [3] = LAYOUT(
+    [3] = LAYOUT( //utility layer
+        _______, RGB_TOG, _______, _______,
         _______, _______, _______, _______,
-        _______, _______, _______, _______,
-        _______, _______, _______, _______,
-        _______, QK_BOOT, EE_CLR,  TO(0)
+        _______, QK_RBT , _______, _______,
+        TO(2),   QK_BOOT, EE_CLR,  TO(0)
     )
 };
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    { ENCODER_CCW_CW(KC_WH_R, KC_WH_L),           ENCODER_CCW_CW(KC_WBAK, KC_WFWD)  },
+    { ENCODER_CCW_CW(KC_WFWD, KC_WBAK),           ENCODER_CCW_CW(KC_WH_R, KC_WH_L)  },
     { ENCODER_CCW_CW(_______, _______),           ENCODER_CCW_CW(_______, _______)  },
     { ENCODER_CCW_CW(_______, _______),           ENCODER_CCW_CW(_______, _______)  },
     { ENCODER_CCW_CW(_______, _______),           ENCODER_CCW_CW(_______, _______)  }
