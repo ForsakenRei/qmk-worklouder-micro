@@ -62,8 +62,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [3] = LAYOUT( //utility layer
         _______, RGB_TOG, _______, _______,
         _______, _______, _______, _______,
-        _______, QK_RBT , _______, _______,
-        TO(2),   QK_BOOT, EE_CLR,  TO(0)
+        _______, _______, QK_RBT,  _______,
+        TO(2),   EE_CLR,  QK_BOOT, TO(0)
     )
 };
 
