@@ -3,24 +3,24 @@
 
 #include QMK_KEYBOARD_H
 
-bool is_alt_tab_active = false; // ADD this near the beginning of keymap.c
-uint16_t alt_tab_timer = 0;     // we will be using them soon.
+// bool is_alt_tab_active = false;
+// uint16_t alt_tab_timer = 0;     
 
 enum custom_keycodes {
-    ALT_TAB = SAFE_RANGE, //cycle layers in up direction
-    WIN_POS
+    // ALT_TAB = SAFE_RANGE,
+    WIN_POS = SAFE_RANGE,
 };
 
 #define WIN_POS G(A(KC_SPACE))
 
-void matrix_scan_user(void) { // The very important timer.
-    if (is_alt_tab_active) {
-        if (timer_elapsed(alt_tab_timer) > 2000) {
-        unregister_code(KC_LALT);
-        is_alt_tab_active = false;
-        }
-    }
-}
+// void matrix_scan_user(void) { // The very important timer.
+//     if (is_alt_tab_active) {
+//         if (timer_elapsed(alt_tab_timer) > 2000) {
+//         unregister_code(KC_LALT);
+//         is_alt_tab_active = false;
+//         }
+//     }
+// }
 
 #ifdef RGB_MATRIX_ENABLE
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
@@ -39,11 +39,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 #define VD_LEFT G(C(KC_LEFT))
 #define VD_RGHT G(C(KC_RIGHT))
 #define OS_LOCK G(KC_L)
+#define TSK_VIW G(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT( //default layer
         KC_NO,   KC_ESC,  KC_F5,   KC_NO,
-        WIN_POS, ALT_TAB, G(KC_X), KC_LGUI,
+        WIN_POS, TSK_VIW, G(KC_X), KC_LGUI,
         KC_F13,  SCR_LFT, SCR_RHT, KC_MPLY,
         TO(3),   KC_F15,  KC_MUTE, TO(1)
     ),
@@ -88,24 +89,24 @@ work_louder_config_t work_louder_config;
 
 #define WL_LED_MAX_BRIGHT 75
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case ALT_TAB:
-            if (record->event.pressed) {
-                if (!is_alt_tab_active) {
-                    is_alt_tab_active = true;
-                    register_code(KC_LALT);
-                }
-                alt_tab_timer = timer_read();
-                register_code(KC_TAB);
-            } else {
-                unregister_code(KC_TAB);
-            }
-        return false;
-    default:
-        return true;
-    }
-}
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         case ALT_TAB:
+//             if (record->event.pressed) {
+//                 if (!is_alt_tab_active) {
+//                     is_alt_tab_active = true;
+//                     register_code(KC_LALT);
+//                 }
+//                 alt_tab_timer = timer_read();
+//                 register_code(KC_TAB);
+//             } else {
+//                 unregister_code(KC_TAB);
+//             }
+//         return false;
+//     default:
+//         return true;
+//     }
+// }
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
