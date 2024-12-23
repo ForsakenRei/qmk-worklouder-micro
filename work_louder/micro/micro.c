@@ -138,3 +138,14 @@ void work_louder_led_init_animation(void) {
     work_louder_micro_led_3_off();
     wait_ms(200);
 }
+
+
+void suspend_power_down_kb(void) {
+    suspend_power_down_user();
+    work_louder_micro_led_all_off();
+}
+
+void suspend_wakeup_init_kb(void) {
+    work_louder_led_init_animation();
+    suspend_wakeup_init_user();
+}
