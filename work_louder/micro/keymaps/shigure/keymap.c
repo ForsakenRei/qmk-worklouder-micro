@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TO(1),   KC_F15,  KC_MUTE, TO(3)
     ),
     [3] = LAYOUT( //utility layer
-        _______, RM_TOGG, _______, _______,
+        _______, RM_TOGG, LED_LEVEL, _______,
         _______, _______, _______, _______,
         _______, _______, QK_RBT,  _______,
         TO(2),   EE_CLR,  QK_BOOT, TO(0)

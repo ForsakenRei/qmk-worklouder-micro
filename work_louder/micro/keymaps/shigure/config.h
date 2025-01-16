@@ -15,9 +15,5 @@
 
 #pragma once
 
-#define RGB_MATRIX_DEFAULT_VAL 0
-
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_HUE_BREATHING
-
 #define RGBLIGHT_SLEEP // allows us to use rgblight_suspend() and rgblight_wakeup() in keymap.c
 #define RGBLIGHT_TIMEOUT 900000
