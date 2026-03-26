@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_SLEP, OS_LOCK, _______,
         WIN_POS, KC_PGDN, KC_PGUP, G(KC_X),
         VD_LEFT, SCR_LFT, SCR_RHT, VD_RGHT,
-        TO(0),   KC_PGDN, KC_PGUP, TO(2)
+        TO(0),   KC_MSTP, KC_MPLY, TO(2)
     ),
     [2] = LAYOUT( //media layer
         _______, _______, _______, _______,
