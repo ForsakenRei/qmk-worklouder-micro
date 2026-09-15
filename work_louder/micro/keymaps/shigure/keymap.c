@@ -43,11 +43,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         VD_LEFT, SCR_LFT, SCR_RHT, VD_RGHT,
         TO(0),   KC_MSTP, KC_MPLY, TO(2)
     ),
-    [2] = LAYOUT( //media layer
-        _______, _______, _______, _______,
-        _______, KC_VOLU, KC_VOLD, _______,
-        KC_MSTP, KC_MPRV, KC_MNXT, KC_MPLY,
-        TO(1),   KC_F15,  KC_MUTE, TO(3)
+    [2] = LAYOUT( //audition layer
+        C(KC_BSLS), KC_9,       KC_0,         _______,
+        KC_HOME,    A(KC_LEFT), A(KC_RGHT),   KC_END,
+        KC_M,       KC_SPC,     C(S(KC_SPC)), C(KC_L),
+        TO(1),      KC_UP,      KC_DOWN,      TO(3)
     ),
     [3] = LAYOUT( //utility layer
         _______, RM_TOGG, LED_LEVEL, _______,
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     { ENCODER_CCW_CW(KC_WFWD, KC_WBAK),           ENCODER_CCW_CW(MS_WHLL, MS_WHLR)  },
     { ENCODER_CCW_CW(_______, _______),           ENCODER_CCW_CW(_______, _______)  },
-    { ENCODER_CCW_CW(_______, _______),           ENCODER_CCW_CW(_______, _______)  },
+    { ENCODER_CCW_CW(C(KC_LEFT), C(KC_RGHT)),     ENCODER_CCW_CW(KC_EQL,  KC_MINS)  },
     { ENCODER_CCW_CW(_______, _______),           ENCODER_CCW_CW(_______, _______)  }
 };
 #endif
