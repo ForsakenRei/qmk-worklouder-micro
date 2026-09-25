@@ -17,3 +17,6 @@
 
 #define RGBLIGHT_SLEEP // allows us to use rgblight_suspend() and rgblight_wakeup() in keymap.c
 #define RGBLIGHT_TIMEOUT 900000
+
+#define SYSTEM_CONTROL_USAGE_MINIMUM 0x0001
+#define SYSTEM_CONTROL_USAGE_MAXIMUM 0x00B7
